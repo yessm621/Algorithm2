@@ -1,9 +1,8 @@
 n, m = map(int, input().split())
 tree = list(map(int, input().split()))
-tree.sort()
 
-lt = 0
-rt = tree[n-1]
+lt = 1
+rt = max(tree)
 res = 0
 while lt <= rt:
     mid = (lt + rt) // 2
