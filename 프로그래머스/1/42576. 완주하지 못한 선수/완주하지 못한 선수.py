@@ -1,26 +1,11 @@
 def solution(participant, completion):
-    answer = ''
     data = {}
     for p in participant:
-        if data.get(p):
-            data[p] += 1
-        else:
-            data[p] = 1
+        data[p] = data.get(p, 0) + 1
     
-    comple = {}
     for c in completion:
-        if comple.get(c):
-            comple[c] += 1
-        else:
-            comple[c] = 1
-
-    for d in data:
-        if d in comple:
-            data[d] -= comple[d]
+        data[c] -= 1
     
-    for d in data:
-        if data.get(d) == 1:
-            answer = d
-            break
+    answer = [k for k, v in data.items() if v > 0][0]
     
     return answer
