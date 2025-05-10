@@ -1,13 +1,10 @@
 def solution(clothes):
-    d = {}
-    for name, key in clothes:
-        if d.get(key):
-            d[key] += [name]
-        else:
-            d[key] = [name]
-    
     answer = 1
-    for key, value in d.items():
-        answer *= (len(value) + 1)
+    data = {}
+    for clothe in clothes:
+        data[clothe[1]] = data.get(clothe[1], 0) + 1
+    
+    for k, v in data.items():
+        answer *= (v + 1)
     
     return answer - 1
